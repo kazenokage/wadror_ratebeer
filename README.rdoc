@@ -1,1 +1,3 @@
 ratebeer app for uni helsinki / cs / wadror
+
+wadror-kazenokage.heroku.com
