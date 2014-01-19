@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39eb71eb-b1fd-4536-8351-0432e37a29b1" name="Default" comment="" />
+    <list default="true" id="39eb71eb-b1fd-4536-8351-0432e37a29b1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+    </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +37,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="19" selection-start="271" selection-end="271" vertical-scroll-proportion="0.19848771" vertical-offset="75" max-vertical-offset="885">
+            <state line="13" column="12" selection-start="287" selection-end="287" vertical-scroll-proportion="0.2268431" vertical-offset="75" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -616,7 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="271" selection-end="271" vertical-scroll-proportion="0.19848771" vertical-offset="75" max-vertical-offset="885">
+        <state line="13" column="12" selection-start="287" selection-end="287" vertical-scroll-proportion="0.2268431" vertical-offset="75" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
