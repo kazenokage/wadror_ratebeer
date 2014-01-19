@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39eb71eb-b1fd-4536-8351-0432e37a29b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/breweries/panimot.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +37,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="10" selection-start="285" selection-end="285" vertical-scroll-proportion="0.36862004" vertical-offset="0" max-vertical-offset="885">
+            <state line="13" column="4" selection-start="279" selection-end="279" vertical-scroll-proportion="0.36862004" vertical-offset="0" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -621,7 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="10" selection-start="285" selection-end="285" vertical-scroll-proportion="0.36862004" vertical-offset="0" max-vertical-offset="885">
+        <state line="13" column="4" selection-start="279" selection-end="279" vertical-scroll-proportion="0.36862004" vertical-offset="0" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
