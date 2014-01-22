@@ -1,0 +1,177 @@
+2.0.0-p353 :018 > b = Brewery.find_by name:'BrewDog'
+  Brewery Load (0.3ms)  SELECT "breweries".* FROM "breweries" WHERE "breweries"."name" = 'BrewDog' LIMIT 1
+ => #<Brewery id: 7, name: "BrewDog", year: 2007, created_at: "2014-01-22 21:21:21", updated_at: "2014-01-22 21:21:21"> 
+2.0.0-p353 :019 > Beer.create name:'Punk IPA', style:'IPA'
+   (0.1ms)  begin transaction
+  SQL (0.7ms)  INSERT INTO "beers" ("created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 21:22:53 UTC +00:00], ["name", "Punk IPA"], ["style", "IPA"], ["updated_at", Wed, 22 Jan 2014 21:22:53 UTC +00:00]]
+   (1.4ms)  commit transaction
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: nil, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:22:53"> 
+2.0.0-p353 :020 > ipa = Beer.find_by name:'Punk IPA'
+  Beer Load (0.4ms)  SELECT "beers".* FROM "beers" WHERE "beers"."name" = 'Punk IPA' LIMIT 1
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: nil, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:22:53"> 
+2.0.0-p353 :021 > ipa.brewery_id:b
+ArgumentError: wrong number of arguments (1 for 0)
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_methods/read.rb:58:in `__temp__26275677562797f59646'
+	from (irb):21
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :022 > ipa.brewery_id = b
+ => #<Brewery id: 7, name: "BrewDog", year: 2007, created_at: "2014-01-22 21:21:21", updated_at: "2014-01-22 21:21:21"> 
+2.0.0-p353 :023 > ipa.brewery_id
+ => nil 
+2.0.0-p353 :024 > ipa.update brewery_id:b
+   (0.2ms)  begin transaction
+   (0.1ms)  commit transaction
+ => true 
+2.0.0-p353 :025 > ipa
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: nil, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:22:53"> 
+2.0.0-p353 :026 > ipa.save
+   (0.2ms)  begin transaction
+   (0.1ms)  commit transaction
+ => true 
+2.0.0-p353 :027 > ipa
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: nil, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:22:53"> 
+2.0.0-p353 :028 > brewery.last
+NameError: undefined local variable or method `brewery' for main:Object
+	from (irb):28
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :029 > Brewery.last
+  Brewery Load (0.3ms)  SELECT "breweries".* FROM "breweries" ORDER BY "breweries"."id" DESC LIMIT 1
+ => #<Brewery id: 7, name: "BrewDog", year: 2007, created_at: "2014-01-22 21:21:21", updated_at: "2014-01-22 21:21:21"> 
+2.0.0-p353 :030 > ipa.update brewery_id:7
+   (0.1ms)  begin transaction
+  SQL (0.7ms)  UPDATE "beers" SET "brewery_id" = ?, "updated_at" = ? WHERE "beers"."id" = 15  [["brewery_id", 7], ["updated_at", Wed, 22 Jan 2014 21:25:59 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => true 
+2.0.0-p353 :031 > ipa.save
+   (0.2ms)  begin transaction
+   (0.1ms)  commit transaction
+ => true 
+2.0.0-p353 :032 > ipa
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: 7, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:25:59"> 
+2.0.0-p353 :033 > ls
+NameError: undefined local variable or method `ls' for main:Object
+	from (irb):33
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :034 > clear
+NameError: undefined local variable or method `clear' for main:Object
+	from (irb):34
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :035 > clr
+NameError: undefined local variable or method `clr' for main:Object
+	from (irb):35
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :036 > Beer.create name:'Nanny State', style:'lowalcohol', brewery_id:7
+   (0.1ms)  begin transaction
+  SQL (0.7ms)  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 7], ["created_at", Wed, 22 Jan 2014 21:26:54 UTC +00:00], ["name", "Nanny State"], ["style", "lowalcohol"], ["updated_at", Wed, 22 Jan 2014 21:26:54 UTC +00:00]]
+   (1.5ms)  commit transaction
+ => #<Beer id: 16, name: "Nanny State", style: "lowalcohol", brewery_id: 7, created_at: "2014-01-22 21:26:54", updated_at: "2014-01-22 21:26:54"> 
+2.0.0-p353 :037 > Ratings.create beer_id:ipa, score:14
+NameError: uninitialized constant Ratings
+	from (irb):37
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :038 > Ratings.create beer_id:ipa.id, score:14
+NameError: uninitialized constant Ratings
+	from (irb):38
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :039 > ipa
+ => #<Beer id: 15, name: "Punk IPA", style: "IPA", brewery_id: 7, created_at: "2014-01-22 21:22:53", updated_at: "2014-01-22 21:25:59"> 
+2.0.0-p353 :040 > ipa.id
+ => 15 
+2.0.0-p353 :041 > Rating.create beer_id:ipa.id, score:14
+   (0.1ms)  begin transaction
+  SQL (1.0ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 15], ["created_at", Wed, 22 Jan 2014 21:30:09 UTC +00:00], ["score", 14], ["updated_at", Wed, 22 Jan 2014 21:30:09 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => #<Rating id: 4, score: 14, beer_id: 15, created_at: "2014-01-22 21:30:09", updated_at: "2014-01-22 21:30:09"> 
+2.0.0-p353 :042 > Rating.create beer_id:ipa.id, score:19
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 15], ["created_at", Wed, 22 Jan 2014 21:30:12 UTC +00:00], ["score", 19], ["updated_at", Wed, 22 Jan 2014 21:30:12 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => #<Rating id: 5, score: 19, beer_id: 15, created_at: "2014-01-22 21:30:12", updated_at: "2014-01-22 21:30:12"> 
+2.0.0-p353 :043 > Rating.create beer_id:ipa.id, score:12
+   (0.1ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 15], ["created_at", Wed, 22 Jan 2014 21:30:14 UTC +00:00], ["score", 12], ["updated_at", Wed, 22 Jan 2014 21:30:14 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => #<Rating id: 6, score: 12, beer_id: 15, created_at: "2014-01-22 21:30:14", updated_at: "2014-01-22 21:30:14"> 
+2.0.0-p353 :044 > Rating.create beer_id:ipa.id, score:16
+   (0.1ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 15], ["created_at", Wed, 22 Jan 2014 21:30:15 UTC +00:00], ["score", 16], ["updated_at", Wed, 22 Jan 2014 21:30:15 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => #<Rating id: 7, score: 16, beer_id: 15, created_at: "2014-01-22 21:30:15", updated_at: "2014-01-22 21:30:15"> 
+2.0.0-p353 :045 > ns = Beer.find_by name:'Nanny State'
+  Beer Load (0.3ms)  SELECT "beers".* FROM "beers" WHERE "beers"."name" = 'Nanny State' LIMIT 1
+ => #<Beer id: 16, name: "Nanny State", style: "lowalcohol", brewery_id: 7, created_at: "2014-01-22 21:26:54", updated_at: "2014-01-22 21:26:54"> 
+2.0.0-p353 :046 > ns
+ => #<Beer id: 16, name: "Nanny State", style: "lowalcohol", brewery_id: 7, created_at: "2014-01-22 21:26:54", updated_at: "2014-01-22 21:26:54"> 
+2.0.0-p353 :047 > Rating.create beer_id:ns.id, rating:14
+ActiveRecord::UnknownAttributeError: unknown attribute: rating
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_assignment.rb:47:in `rescue in _assign_attribute'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_assignment.rb:42:in `_assign_attribute'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_assignment.rb:29:in `block in assign_attributes'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_assignment.rb:23:in `each'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/attribute_assignment.rb:23:in `assign_attributes'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/core.rb:460:in `init_attributes'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/core.rb:185:in `initialize'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/inheritance.rb:27:in `new'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/inheritance.rb:27:in `new'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/persistence.rb:36:in `create'
+	from (irb):47
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:90:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands/console.rb:9:in `start'
+	from /Users/tomminikkanen/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/commands.rb:62:in `<top (required)>'
+	from bin/rails:4:in `require'
+	from bin/rails:4:in `<main>'
+2.0.0-p353 :048 > Rating.create beer_id:ns.id, score:14
+   (0.2ms)  begin transaction
+  SQL (0.6ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 16], ["created_at", Wed, 22 Jan 2014 21:31:36 UTC +00:00], ["score", 14], ["updated_at", Wed, 22 Jan 2014 21:31:36 UTC +00:00]]
+   (1.5ms)  commit transaction
+ => #<Rating id: 8, score: 14, beer_id: 16, created_at: "2014-01-22 21:31:36", updated_at: "2014-01-22 21:31:36"> 
+2.0.0-p353 :049 > Rating.create beer_id:ns.id, score:19
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 16], ["created_at", Wed, 22 Jan 2014 21:31:38 UTC +00:00], ["score", 19], ["updated_at", Wed, 22 Jan 2014 21:31:38 UTC +00:00]]
+   (1.5ms)  commit transaction
+ => #<Rating id: 9, score: 19, beer_id: 16, created_at: "2014-01-22 21:31:38", updated_at: "2014-01-22 21:31:38"> 
+2.0.0-p353 :050 > Rating.create beer_id:ns.id, score:18
+   (0.1ms)  begin transaction
+  SQL (1.1ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 16], ["created_at", Wed, 22 Jan 2014 21:31:41 UTC +00:00], ["score", 18], ["updated_at", Wed, 22 Jan 2014 21:31:41 UTC +00:00]]
+   (1.5ms)  commit transaction
+ => #<Rating id: 10, score: 18, beer_id: 16, created_at: "2014-01-22 21:31:41", updated_at: "2014-01-22 21:31:41"> 
+2.0.0-p353 :051 > Rating.create beer_id:ns.id, score:16
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 16], ["created_at", Wed, 22 Jan 2014 21:31:43 UTC +00:00], ["score", 16], ["updated_at", Wed, 22 Jan 2014 21:31:43 UTC +00:00]]
+   (1.6ms)  commit transaction
+ => #<Rating id: 11, score: 16, beer_id: 16, created_at: "2014-01-22 21:31:43", updated_at: "2014-01-22 21:31:43"> 
+2.0.0-p353 :052 > Rating.create beer_id:ns.id, score:9
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 16], ["created_at", Wed, 22 Jan 2014 21:31:46 UTC +00:00], ["score", 9], ["updated_at", Wed, 22 Jan 2014 21:31:46 UTC +00:00]]
+   (1.5ms)  commit transaction
+ => #<Rating id: 12, score: 9, beer_id: 16, created_at: "2014-01-22 21:31:46", updated_at: "2014-01-22 21:31:46"> 
+2.0.0-p353 :053 > 
+
