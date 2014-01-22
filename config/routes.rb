@@ -1,7 +1,14 @@
 Ratebeer::Application.routes.draw do
-  resources :beers
 
+  root 'breweries#index'
+
+  resources :beers
   resources :breweries
+
+  get 'kaikki_bisset', to: 'beers#index'
+  get 'ratings', to: 'ratings#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
