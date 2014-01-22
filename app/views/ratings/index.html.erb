@@ -1,3 +1,10 @@
 <h2>List of ratings</h2>
+<p>Total of <%= @ratings.count %></p>
 
-<p>to be completed</p>
+
+<ul>
+  <% @ratings.each do |rating| %>
+  <li><%= rating.to_s %></li>
+  <% end %>
+</ul>
+
