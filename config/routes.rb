@@ -7,8 +7,10 @@ Ratebeer::Application.routes.draw do
   resources :ratings
 
   get 'kaikki_bisset', to: 'beers#index'
-  get 'ratings', to: 'ratings#index'
-
+  #get 'ratings', to: 'ratings#index'
+  #get 'ratings/new', to: 'ratings#new'
+  #post 'ratings', to: 'ratings#create'
+  resources :ratings, :only => [:index, :new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
