@@ -1,5 +1,5 @@
-class RatingAverage
+module RatingAverage
   def average_rating
-    return (self.ratings.inject(0.0) { |result, rating| result + rating.score}) / self.ratings.score
+    return ratings.sum('score').to_f / ratings.count
   end
 end
