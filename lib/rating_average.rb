@@ -1,5 +1,5 @@
 module RatingAverage
   def average_rating
-    return ratings.sum('score').to_f / ratings.count
+    return self.ratings.sum('score').to_f / self.ratings.count
   end
 end
