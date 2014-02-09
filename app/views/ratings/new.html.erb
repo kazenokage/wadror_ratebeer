@@ -4,7 +4,7 @@
 
     <% if @rating.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@rating.errors.count, "error") %> prohibitet rating from being saved:</h2>
+          <h2><%= pluralize(@rating.errors.count, "error") %> prohibited rating from being saved:</h2>
           <ul>
             <% @rating.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -13,6 +13,7 @@
           </ul>
         </div>
     <% end %>
+
     Beer: <%= f.select :beer_id, options_from_collection_for_select(@beers, :id,'to_s',:name) %>
     Score: <%= f.number_field :score %>
     <%= f.submit %>

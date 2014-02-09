@@ -5,10 +5,15 @@ class Brewery < ActiveRecord::Base
   has_many :ratings, :through => :beers
 
   validates :name, length: {minimum: 1}
-  validates :established, numericality: {greater_than_or_equal_to: 1042, less_than_or_equal_to: 2014}
+  validates :year, numericality: { less_than_or_equal_to: ->(_) { Time.now.year} }
 
   #def average_rating
   #  ratings.sum('score').to_f / ratings.count
   #end
+
+  def restart
+    self.year = 2014
+    puts "changed year to #{year}"
+  end
 
 end
