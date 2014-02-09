@@ -1,3 +1,5 @@
 ratebeer app for uni helsinki / cs / wadror
 
 wadror-kazenokage.heroku.com
+
+[![Build Status](https://travis-ci.org/kazenokage/wadror-ratebeer-public.png)](https://travis-ci.org/kazenokage/wadror-ratebeer-public)
