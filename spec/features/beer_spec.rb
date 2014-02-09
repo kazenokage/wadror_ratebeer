@@ -9,7 +9,7 @@ describe "Beer" do
   it "can be created and be found" do
     sign_in(username:"Pekka", password:"Foobar1")
     visit new_beer_path
-    fill_in('beer_name', with:'Tuplahumala')
+    fill_in('Name', with:'Tuplahumala')
 
     expect{
       click_button('Create Beer')
