@@ -14,8 +14,10 @@
 
 <h3>ratings</h3>
 
-<% if @user.ratings.empty? %>
-    <p>none so far</p>
+<% if @user.ratings.any? %>
+    <p>Favorite beer: <%= @user.favorite_beer %></p>
+    <p>Favorite brewery: <%= @user.favorite_brewery %></p>
+    <p>Favorite style: <%= @user.favorite_style %></p>
 <% end %>
 
 <ul>

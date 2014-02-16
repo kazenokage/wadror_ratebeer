@@ -20,20 +20,32 @@ class User < ActiveRecord::Base
 
   def favorite_style
     return nil if ratings.empty?
-    beers_by_style.order(score: :desc)
+    style_ratings = rated_styles.inject([]){ |set,style| set << [style, style_average(style)]}
+    style_ratings.sort_by{ |r| r.last}.last.first
   end
 
   def favorite_brewery
     return nil if ratings.empty?
-    nil
+    brewery_ratings = rated_breweries.inject([]){ |set,brewery| set << [brewery, brewery_average(brewery)]}
+    brewery_ratings.sort_by{ |r| r.last}.last.first
   end
 
-  def beers_by_style
-    user_rated_beers
+  def rated_styles
+    ratings.map{ |r| r.beer.style}.uniq
   end
 
-  def user_rated_beers
-    self.beers
+  def rated_breweries
+    ratings.map{ |r| r.beer.brewery}.uniq
+  end
+
+  def style_average
+    ratings_of_style = ratings.select{ |r| r.beer.style == style}
+    ratings_of_style.inject(0.0){ |sum,r| sum+r.score}/ratings_of_style.count
+  end
+
+  def brewery_average
+    ratings_of_brewery = ratings.selec{ |r| r.beer.brewery == brewery}
+    ratings_of_brewery.inject(0.0){ |sum,r| sum+r.score}/ratings_of_brewery.count
   end
 
 end

@@ -16,6 +16,8 @@ end
 
 gem 'byebug', group: [:development, :test]
 
+gem "rails-settings-cached", "0.3.1"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,12 +41,15 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'httparty'
+
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 group :doc do

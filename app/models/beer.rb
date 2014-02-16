@@ -8,6 +8,7 @@ class Beer < ActiveRecord::Base
   has_many :raters, through: :ratings, source: :user
 
   belongs_to :brewery
+  belongs_to :style
 
   #def average_rating
     #ra_sum = 0.0
